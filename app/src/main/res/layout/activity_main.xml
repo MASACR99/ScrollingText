@@ -33,20 +33,37 @@
             android:id="@+id/subheading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/head"
             android:layout_marginTop="0dp"
             android:padding="10dp"
             android:text="@string/article_subtitle"
             android:textAppearance="@android:style/TextAppearance" />
-        <TextView
-            android:id="@+id/article"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/subheading"
-            android:lineSpacingExtra="5sp"
-            android:text="@string/article_text"
-            android:autoLink="web"
-            android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/article"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="web"
+                android:inputType="textMultiLine"
+                android:lineSpacingExtra="5sp"
+                android:text="@string/article_text"
+                android:textSize="14sp" />
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:id="@+id/editTextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/button"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
