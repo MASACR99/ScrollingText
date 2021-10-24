@@ -34,4 +34,5 @@ Vitae ultricies leo integer malesuada nunc vel. Enim diam vulputate ut pharetra 
 
 Egestas dui id ornare arcu odio. Ac felis donec et odio pellentesque diam volutpat. Iaculis at erat pellentesque adipiscing commodo. Lacus suspendisse faucibus interdum posuere lorem. Faucibus a pellentesque sit amet. Lobortis scelerisque fermentum dui faucibus. Sit amet volutpat consequat mauris nunc. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt lobortis feugiat. Sed sed risus pretium quam vulputate. Amet cursus sit amet dictum sit.</string>
     <string name="button">Edit</string>
+    <string name="preference_file_key">com.example.ScrollingText</string>
 </resources>

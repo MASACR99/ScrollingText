@@ -1,5 +1,7 @@
 package com.example.scrollingtext;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -21,26 +23,20 @@ import java.nio.Buffer;
 
 public class MainActivity extends AppCompatActivity {
 
-    Bundle bundlerino;
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences sharedPref = this.getSharedPreferences("My_pref",Context.MODE_PRIVATE);
         super.onCreate(savedInstanceState);
-        bundlerino = savedInstanceState;
-        if(bundlerino == null){
-            bundlerino = new Bundle();
-        }
-        String lastText = null;
-        try {
-            lastText = bundlerino.getString("Text");
-        }catch(Exception ex){
-            Log.w("Ohno","SHIIIT");
-        }
         setContentView(R.layout.activity_main);
         Button edit = findViewById(R.id.editTextButton);
         EditText text = findViewById(R.id.article);
-        if(lastText != null){
-            text.setText(lastText);
+        if(sharedPref.getString("text",null) != null){
+            text.setText(sharedPref.getString("text",null));
         }
         text.setFocusable(false);
         edit.setOnClickListener(new View.OnClickListener() {
@@ -54,11 +50,7 @@ public class MainActivity extends AppCompatActivity {
                 }else {
                     edit.setText("Edit");
                     text.setFocusable(false);
-
-                    bundlerino.putString("Text",text.getText().toString());
-
-                    onSaveInstanceState(bundlerino);
-
+                    sharedPref.edit().putString("text",text.getText().toString()).commit();
                 }
             }
         });
